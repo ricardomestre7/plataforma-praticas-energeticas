@@ -17,9 +17,9 @@ services:
     ports:
       - "8081:80"
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
-      interval: 30s
-      timeout: 5s
+      test: ["CMD", "curl", "-f", "http://127.0.0.1/health"]
+      interval: 10s
+      timeout: 3s
       retries: 3
     networks:
       - iria-network
@@ -34,9 +34,9 @@ services:
     ports:
       - "8082:80"
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
-      interval: 30s
-      timeout: 5s
+      test: ["CMD", "curl", "-f", "http://127.0.0.1/health"]
+      interval: 10s
+      timeout: 3s
       retries: 3
     networks:
       - iria-network
@@ -51,9 +51,9 @@ services:
     ports:
       - "8083:80"
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
-      interval: 30s
-      timeout: 5s
+      test: ["CMD", "curl", "-f", "http://127.0.0.1/health"]
+      interval: 10s
+      timeout: 3s
       retries: 3
     networks:
       - iria-network
@@ -68,9 +68,9 @@ services:
     ports:
       - "8084:80"
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
-      interval: 30s
-      timeout: 5s
+      test: ["CMD", "curl", "-f", "http://127.0.0.1/health"]
+      interval: 10s
+      timeout: 3s
       retries: 3
     networks:
       - iria-network
@@ -85,9 +85,26 @@ services:
     ports:
       - "8085:80"
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
-      interval: 30s
-      timeout: 5s
+      test: ["CMD", "curl", "-f", "http://127.0.0.1/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+    networks:
+      - iria-network
+
+  # Plataforma Central Soberana & Hub
+  plataforma-hub:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: iria-central-hub
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1/health"]
+      interval: 10s
+      timeout: 3s
       retries: 3
     networks:
       - iria-network
