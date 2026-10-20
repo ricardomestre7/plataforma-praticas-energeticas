@@ -1,0 +1,14 @@
+# Pacotes de distribuição grandes (.tar)
+pacotes/*.tar
+pacotes/*.gz
+
+# Vídeos grandes de desenvolvimento (manter estrutura)
+*.mp4
+*.m4v
+*.webm
+!videos/.gitkeep
+
+# Logs e temporários
+*.log
+.DS_Store
+Thumbs.db

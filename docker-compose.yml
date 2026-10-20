@@ -1,0 +1,97 @@
+version: '3.8'
+
+# ==============================================================================
+# IRIA KNOWLEDGE CONTAINERS — DOCKER COMPOSE ORCHESTRATION
+# Autor: Mestre Ricardo Rogério Pereira | Safe Creative #2610157331452
+# Qualidade Europeia a Nível Global • Cylinder Global Academy
+# ==============================================================================
+
+services:
+  # Vertical 01: 33 Protocolos Integrativos Avançados (PIA)
+  pia-33:
+    build:
+      context: ./verticals/01-pia
+      dockerfile: Dockerfile
+    container_name: iria-01-pia
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks:
+      - iria-network
+
+  # Vertical 02: Sistema Reiki Usui Luminar®
+  reiki-luminar:
+    build:
+      context: ./verticals/02-reiki-usui-luminar
+      dockerfile: Dockerfile
+    container_name: iria-02-reiki-usui-luminar
+    restart: unless-stopped
+    ports:
+      - "8082:80"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks:
+      - iria-network
+
+  # Vertical 03: Formações Quânticas & Biofield RPQ36
+  quantica-avancada:
+    build:
+      context: ./verticals/03-quantica-avancada
+      dockerfile: Dockerfile
+    container_name: iria-03-quantica-avancada
+    restart: unless-stopped
+    ports:
+      - "8083:80"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks:
+      - iria-network
+
+  # Vertical 04: Vertical IRIA Integrative Therapists
+  integrative-therapists:
+    build:
+      context: ./verticals/04-integrative-therapists
+      dockerfile: Dockerfile
+    container_name: iria-04-integrative-therapists
+    restart: unless-stopped
+    ports:
+      - "8084:80"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks:
+      - iria-network
+
+  # Vertical 05: 6 Sistemas Essenciais Naturalis
+  naturalis-sistemas:
+    build:
+      context: ./verticals/05-naturalis
+      dockerfile: Dockerfile
+    container_name: iria-05-naturalis
+    restart: unless-stopped
+    ports:
+      - "8085:80"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks:
+      - iria-network
+
+networks:
+  iria-network:
+    driver: bridge
