@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IRIA Knowledge Containers — Ecossistema Soberano de Práticas Integrativas & Formações Europeias Avançadas." />
+  <meta name="author" content="Ricardo Rogério Pereira" />
+  <meta name="copyright" content="Safe Creative #2610157331452" />
+  <title>IRIA Knowledge Container — Plataforma Soberana</title>
+  
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+</head>
+<body>
+
+  <!-- Top Navigation Bar -->
+  <header class="app-header">
+    <div class="brand-section">
+      <div class="brand-badge-logo" id="vertical-code">LUM</div>
+      <div class="brand-meta">
+        <h1>
+          <span id="vertical-title">IRIA Knowledge Base</span>
+          <span class="vertical-tag" id="vertical-tag">Terapias Integrativas</span>
+        </h1>
+        <p>Desenvolvido na Europa por CylinderMargin & Mestre Ricardo Rogério Pereira</p>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <div class="sovereign-seal">
+        <div class="status-dot"></div>
+        <span>Safe Creative #2610157331452</span>
+      </div>
+      <button class="btn-ics-trigger" id="btn-trigger-ics">
+        <span>⚡</span> Docket de Coerência ICS
+      </button>
+    </div>
+  </header>
+
+  <!-- Main App Layout -->
+  <div class="app-container">
+    
+    <!-- Left: Video Player & Clinical Dossier -->
+    <main class="player-stage">
+      
+      <!-- Video Container -->
+      <div class="video-frame-container">
+        <div class="video-watermark">IRIA SOVEREIGN STREAM • SAFE CREATIVE 2610157331452</div>
+        <video id="main-video-element" controls controlslist="nodownload" preload="metadata" poster="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 450'><rect width='100%25' height='100%25' fill='%23050811'/><text x='50%25' y='50%25' fill='%2310b981' font-family='sans-serif' font-size='24' font-weight='bold' text-anchor='middle' dominant-baseline='middle'>IRIA KNOWLEDGE CONTAINERS • STREAM ATIVO</text></svg>">
+          <source src="videos/aula-01.mp4" type="video/mp4" />
+          Seu navegador não suporta streaming de vídeo HTML5.
+        </video>
+      </div>
+
+      <!-- Lesson Meta Details -->
+      <section class="lesson-meta-bar">
+        <div class="meta-top-row">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <span class="lesson-code-pill" id="current-lesson-code">L1-01</span>
+            <span class="lesson-duration" id="current-lesson-duration">⏱️ 18 min</span>
+          </div>
+          <div style="font-size: 0.78rem; color: #94a3b8;">
+            Instrutor: <strong style="color: #f8fafc;">Mestre Ricardo Rogério Pereira</strong> (Ovar, Portugal)
+          </div>
+        </div>
+        <h2 class="lesson-title" id="current-lesson-title">Boas-Vindas e Alinhamento Epistemológico</h2>
+        <p class="lesson-description" id="current-lesson-description">
+          Introdução à metodologia soberana IRIA, princípios de não-invasividade e o papel do terapeuta integrativo como facilitador da autorregulação biológica.
+        </p>
+
+        <!-- Tabs Navigation -->
+        <nav class="tab-navigation">
+          <button class="tab-btn active" data-tab="materiais">📄 Fichas Técnicas & Materiais</button>
+          <button class="tab-btn" data-tab="clinico">🎯 Diretrizes Clínicas</button>
+          <button class="tab-btn" data-tab="anotacoes">📝 Diário de Bordo Pessoal</button>
+        </nav>
+      </section>
+
+      <!-- Tab Content Panels -->
+      <div class="tab-content-panel active" id="panel-materiais">
+        <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; color: #f8fafc;">Materiais Didáticos & Protocolos da Aula</h3>
+        <div id="materials-list">
+          <!-- Injetado dinamicamente via JS -->
+        </div>
+      </div>
+
+      <div class="tab-content-panel" id="panel-clinico">
+        <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; color: #f8fafc;">Orientações para o Terapeuta</h3>
+        <div id="clinical-notes-content">
+          <!-- Injetado dinamicamente via JS -->
+        </div>
+      </div>
+
+      <div class="tab-content-panel" id="panel-anotacoes">
+        <h3 style="font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; color: #f8fafc;">Anotações e Insights Clínicos</h3>
+        <textarea id="personal-notes" style="width: 100%; min-height: 120px; background: #050811; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #f8fafc; padding: 12px; font-family: inherit; font-size: 0.9rem; resize: vertical;" placeholder="Escreva aqui suas observações sobre a aula e percepções perceptivas..."></textarea>
+        <div style="margin-top: 8px; display: flex; justify-content: flex-end;">
+          <button class="btn-ics-trigger" onclick="alert('Anotações salvas com segurança no armazenamento local criptografado!')">Salvar Anotação</button>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Right: Curriculum Accordion & Progress Tracker -->
+    <aside class="curriculum-sidebar">
+      <div class="sidebar-header">
+        <h2>Conteúdo Programático</h2>
+        <div class="progress-container">
+          <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progress-fill"></div>
+          </div>
+          <div class="progress-text">
+            <span id="progress-percent">0% Concluído</span>
+            <span>Certificação Europeia</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modules Accordion -->
+      <div id="modules-accordion">
+        <!-- Renderizado dinamicamente via player.js -->
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- Modal Docket ICS -->
+  <div class="ics-modal-overlay" id="ics-modal-overlay">
+    <div class="ics-modal">
+      <div class="ics-modal-header">
+        <h3><span>⚡</span> Índice de Coerência Sistémica (ICS)</h3>
+        <button class="ics-modal-close" id="btn-close-modal">✕</button>
+      </div>
+      <div class="ics-modal-body">
+        <p style="font-size: 0.85rem; color: #94a3b8; line-height: 1.5;">
+          O algoritmo ICS quantifica o estado de coerência autonómica do terapeuta e o alinhamento metodológico com os padrões canónicos da Cylinder Global Academy.
+        </p>
+
+        <div class="ics-score-display">
+          <div class="ics-circle">
+            <span class="ics-score-val" id="ics-score-display-val">88%</span>
+            <span class="ics-score-lbl">ICS Global</span>
+          </div>
+          <div style="font-size: 0.8rem; color: #cbd5e1; display: flex; flex-direction: column; gap: 6px;">
+            <div>🌱 <strong>Ritmo Respiratório:</strong> 6.0 rpm (0.1 Hz)</div>
+            <div>🧠 <strong>Modulação Vagal:</strong> 84% de estabilidade</div>
+            <div>✨ <strong>Ressonância do Biocampo:</strong> 88% de coerência</div>
+            <div>🛡️ <strong>Presença Terapêutica:</strong> 92% de ancoragem</div>
+          </div>
+        </div>
+
+        <button class="btn-ics-trigger" id="btn-emitir-cert" style="width: 100%; justify-content: center; padding: 10px; font-size: 0.9rem;">
+          📜 Validar e Emitir Certificado Soberano com Hash
+        </button>
+
+        <div id="cert-container"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/curriculum-data.js"></script>
+  <script src="js/docket-coerencia.js"></script>
+  <script src="js/player.js"></script>
+</body>
+</html>

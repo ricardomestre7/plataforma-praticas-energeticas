@@ -106,6 +106,20 @@ services:
       interval: 10s
       timeout: 3s
       retries: 3
+  # Vertical 06: Formação BioCoherent (formacao.biocoherent.com)
+  formacao-biocoherent:
+    build:
+      context: ./verticals/06-formacao-biocoherent
+      dockerfile: Dockerfile
+    container_name: iria-06-formacao-biocoherent
+    restart: unless-stopped
+    ports:
+      - "8086:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1/health"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
     networks:
       - iria-network
 

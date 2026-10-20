@@ -43,6 +43,7 @@ Dentro das configurações de cada serviço no Coolify, defina o **Domains / FQD
 | **`quantica-avancada`** | `80` (Mapeada: 8083) | `https://quantica.seudominio.com` | Formações Quânticas & Biofield RPQ36 |
 | **`integrative-therapists`**| `80` (Mapeada: 8084) | `https://therapists.seudominio.com` | Vertical IRIA Integrative Therapists |
 | **`naturalis-sistemas`** | `80` (Mapeada: 8085) | `https://naturalis.seudominio.com` | 6 Sistemas Essenciais Naturalis |
+| **`formacao-biocoherent`**| `80` (Mapeada: 8086) | `https://formacao.biocoherent.com` | Formação BioCoherent (25 Horas) · Escola de Terapias Integrativas |
 
 ---
 
