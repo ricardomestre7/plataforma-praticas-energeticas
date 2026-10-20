@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IRIA — International Regenerative & Integrative Academy | Plataforma Central e Hub de Knowledge Containers Soberanos." />
+  <meta name="author" content="Mestre Ricardo Rogério Pereira" />
+  <meta name="copyright" content="Safe Creative #2610157331452" />
+  <title>IRIA Global — International Regenerative & Integrative Academy</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-deep: #050811;
+      --bg-surface: #0a1122;
+      --bg-card: #0f1a33;
+      --bg-card-hover: #162447;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-active: rgba(16, 185, 129, 0.4);
+      --accent-emerald: #10b981;
+      --accent-cyan: #06b6d4;
+      --accent-gold: #f59e0b;
+      --accent-purple: #a855f7;
+      --accent-indigo: #6366f1;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    /* Glow backdrop */
+    .glow-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.18;
+    }
+    .glow-1 { width: 500px; height: 500px; background: #10b981; top: -150px; left: -100px; }
+    .glow-2 { width: 600px; height: 600px; background: #6366f1; top: 20%; right: -200px; }
+    .glow-3 { width: 450px; height: 450px; background: #06b6d4; bottom: -100px; left: 30%; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(5, 8, 17, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 182, 212, 0.2));
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+    }
+
+    .brand-text h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, #f8fafc, #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-text p {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .seal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 9999px;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #fbbf24;
+    }
+
+    .seal-dot {
+      width: 6px;
+      height: 6px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+    }
+
+    main {
+      position: relative;
+      z-index: 10;
+      max-width: 1360px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      width: 100%;
+    }
+
+    .hero-section {
+      text-align: center;
+      max-width: 860px;
+      margin: 0 auto 4rem auto;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      color: #a5b4fc;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: var(--font-mono);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-section h2 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-section h2 span {
+      background: linear-gradient(135deg, #34d399, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-section p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title .pill {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34d399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    /* Grid Verticais Core */
+    .verticals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .v-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 1.75rem;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .v-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--card-accent, #10b981);
+      opacity: 0.8;
+    }
+
+    .v-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+      background: var(--bg-card-hover);
+    }
+
+    .v-code {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--card-accent, #10b981);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .v-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .v-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      line-height: 1.5;
+    }
+
+    .v-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: #64748b;
+    }
+
+    .v-badge {
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+    }
+
+    /* 10 Portais Canónicos Grid */
+    .systems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+
+    .s-item {
+      background: rgba(11, 18, 32, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      transition: all 0.2s;
+    }
+
+    .s-item:hover {
+      background: rgba(17, 28, 51, 0.9);
+      border-color: rgba(6, 182, 212, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .s-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .s-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      color: #38bdf8;
+    }
+
+    .s-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .s-desc {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .s-status {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: #34d399;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.25rem;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      border-top: 1px solid var(--border-subtle);
+      background: rgba(5, 8, 17, 0.95);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    footer strong { color: #f8fafc; }
+  </style>
+</head>
+<body>
+
+  <div class="glow-orb glow-1"></div>
+  <div class="glow-orb glow-2"></div>
+  <div class="glow-orb glow-3"></div>
+
+  <!-- Header -->
+  <header>
+    <div class="brand-group">
+      <div class="brand-logo">🌿</div>
+      <div class="brand-text">
+        <h1>IRIA Global</h1>
+        <p>International Regenerative & Integrative Academy</p>
+      </div>
+    </div>
+
+    <div class="seal-badge">
+      <div class="seal-dot"></div>
+      <span>Safe Creative #2610157331452</span>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="hero-tag">Ecossistema Central de Terapias Soberanas</div>
+      <h2>A Convergência da <span>Ciência Biológica</span> com as <span>Matrizes Vibracionais</span></h2>
+      <p>
+        Plataforma central IRIA de Knowledge Containers e esteira unificada de portais clínicos.
+        Desenvolvido sob padrões europeus soberanos de alta performance por Mestre Ricardo Rogério Pereira & Cylinder Margin.
+      </p>
+    </section>
+
+    <!-- 5 Verticais Core -->
+    <div class="section-title">
+      <span>5 Verticais de Formação e Prática Clínica</span>
+      <span class="pill">IRIA Core Containers</span>
+    </div>
+
+    <div class="verticals-grid">
+      <!-- 01 PIA -->
+      <div class="v-card" style="--card-accent: #10b981;">
+        <div class="v-code">
+          <span>PORTA 8081</span>
+          <span>V-01</span>
+        </div>
+        <h3>33 Protocolos Integrativos (PIA)</h3>
+        <p>Matriz de 33 diretrizes clínicas de intervenção integrativa avançada cobrindo as 7 famílias de autorregulação biológica.</p>
+        <div class="v-meta">
+          <span class="v-badge">pia.*</span>
+          <span style="color: #34d399;">● Ativo no Compose</span>
+        </div>
+      </div>
+
+      <!-- 02 REIKI -->
+      <div class="v-card" style="--card-accent: #f59e0b;">
+        <div class="v-code">
+          <span>PORTA 8082</span>
+          <span>V-02</span>
+        </div>
+        <h3>Reiki Usui Luminar®</h3>
+        <p>Sistema clássico e avançado de canalização energética com telemetria bioenergética e certificação com assinatura criptográfica.</p>
+        <div class="v-meta">
+          <span class="v-badge">reiki.*</span>
+          <span style="color: #34d399;">● Ativo no Compose</span>
+        </div>
+      </div>
+
+      <!-- 03 QUÂNTICA -->
+      <div class="v-card" style="--card-accent: #a855f7;">
+        <div class="v-code">
+          <span>PORTA 8083</span>
+          <span>V-03</span>
+        </div>
+        <h3>Formações Quânticas & Biofield</h3>
+        <p>Radiónica, apometria quântica e alinhamento do campo bioplasmático com protocolo de coerência RPQ36.</p>
+        <div class="v-meta">
+          <span class="v-badge">quantica.*</span>
+          <span style="color: #34d399;">● Ativo no Compose</span>
+        </div>
+      </div>
+
+      <!-- 04 THERAPISTS -->
+      <div class="v-card" style="--card-accent: #06b6d4;">
+        <div class="v-code">
+          <span>PORTA 8084</span>
+          <span>V-04</span>
+        </div>
+        <h3>IRIA Integrative Therapists</h3>
+        <p>Comunidade de elite internacional, supervisão de casos clínicos complexos e emissão do Índice de Coerência Sistémica (ICS).</p>
+        <div class="v-meta">
+          <span class="v-badge">therapists.*</span>
+          <span style="color: #34d399;">● Ativo no Compose</span>
+        </div>
+      </div>
+
+      <!-- 05 NATURALIS -->
+      <div class="v-card" style="--card-accent: #34d399;">
+        <div class="v-code">
+          <span>PORTA 8085</span>
+          <span>V-05</span>
+        </div>
+        <h3>6 Sistemas Essenciais Naturalis</h3>
+        <p>Fitoterapia 5D, Litoterapia (Cristais), Cromoterapia, Florais Multissistemas, Aromaterapia e Frequências Solfeggio integradas.</p>
+        <div class="v-meta">
+          <span class="v-badge">naturalis.*</span>
+          <span style="color: #34d399;">● Ativo no Compose</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 Portais Canónicos -->
+    <div class="section-title">
+      <span>Os 10 Portais Canónicos Auto-Regenerativos</span>
+      <span class="pill">Série Soberana I a X</span>
+    </div>
+
+    <div class="systems-grid">
+      <div class="s-item">
+        <div class="s-header">
+          <div class="s-num">I</div>
+          <div class="s-name">Aire Systems</div>
+        </div>
+        <div class="s-desc">Respiração consciente, ventilação prânica e oxigenação celular profunda.</div>
+        <div class="s-status">✓ Repositório Ativo</div>
+      </div>
+
+      <div class="s-item">
+        <div class="s-header">
+          <div class="s-num">II</div>
+          <div class="s-name">Hydro Systems</div>
+        </div>
+        <div class="s-desc">Hidratação intracelular estruturada e terreno biológico coerente.</div>
+        <div class="s-status">✓ Repositório Ativo</div>
+      </div>
+
+      <div class="s-item">
+        <div class="s-header">
+          <div class="s-num">III</div>
+          <div class="s-name">Nature Systems</div>
+        </div>
+        <div class="s-desc">Biofilia, banhos de floresta (Shinrin-Yoku) e aterramento elétrico.</div>
+        <div class="s-status">✓ Repositório Ativo</div>
+      </div>
+
+      <div class="s-item">
+        <div class="s-header">
+          <div class="s-num">IV</div>
+          <div class="s-name">Neuro Systems</div>
+        </div>
+        <div class="s-desc">Plasticidade sináptica, neurogênese e mapeamento mnemônico.</div>
+        <div class="s-status">✓ Repositório Ativo</div>
+      </div>
+
+      <div class="s-item">
+        <div class="s-header">
+          <div class="s-num">V</div>
+          <div class="s-name">Parassimpático</div>
+        </div>
+        <div class="s-desc">Tônus vagal ventral, modulação da VFC e alívio do estresse crônico.</div>
+        <div class="s-status">✓ Repositório Ativo</div>
+      </div>
+
+      <div class="s-item">
+        <div class="s-header">
+          <div class="s-num">VI</div>
+          <div class="s-name">Geometrix Systems</div>
+        </div>
+        <div class="s-desc">Sólidos Platónicos, proporções áureas e bioarquitetura sagrada.</div>
+        <div class="s-status">✓ Repositório Ativo</div>
+      </div>
+
+      <div class="s-item">
+        <div class="s-header">
+          <div class="s-num">VII</div>
+          <div class="s-name">Consciousness</div>
+        </div>
+        <div class="s-desc">Expansão de consciência, cymática sagrada e campos mórficos.</div>
+        <div class="s-status">✓ Repositório Ativo</div>
+      </div>
+
+      <div class="s-item">
+        <div class="s-header">
+          <div class="s-num">VIII</div>
+          <div class="s-name">Nutri Systems</div>
+        </div>
+        <div class="s-desc">Nutrição regenerativa, bioenergética mitocondrial e ortomolecular.</div>
+        <div class="s-status">✓ Repositório Ativo</div>
+      </div>
+
+      <div class="s-item">
+        <div class="s-header">
+          <div class="s-num">IX</div>
+          <div class="s-name">Epigenética Systems</div>
+        </div>
+        <div class="s-desc">Alavancas de longevidade, reprogramação celular e expressão gênica.</div>
+        <div class="s-status">✓ Repositório Ativo</div>
+      </div>
+
+      <div class="s-item">
+        <div class="s-header">
+          <div class="s-num">X</div>
+          <div class="s-name">Vision Systems</div>
+        </div>
+        <div class="s-desc">Biofotônica avançada, ritmo circadiano e coerência perceptiva ocular.</div>
+        <div class="s-status">✓ Repositório Ativo</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>
+      <strong>IRIA — International Regenerative & Integrative Academy</strong> • Safe Creative <strong>#2610157331452</strong>
+    </p>
+    <p style="margin-top: 0.5rem; font-size: 0.74rem;">
+      Autoria Intelectual & Direção Clínica: <strong>Mestre Ricardo Rogério Pereira</strong> (Ovar, Portugal) • Tecnologia <strong>Cylinder Margin</strong>
+    </p>
+  </footer>
+
+</body>
+</html>
